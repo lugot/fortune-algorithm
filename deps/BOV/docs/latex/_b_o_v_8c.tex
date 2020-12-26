@@ -1,0 +1,315 @@
+\hypertarget{_b_o_v_8c}{}\doxysection{src/\+B\+OV.c File Reference}
+\label{_b_o_v_8c}\index{src/BOV.c@{src/BOV.c}}
+{\ttfamily \#include \char`\"{}B\+O\+V.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}big\+\_\+font.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}points\+\_\+vert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}points\+\_\+geom.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}points\+\_\+frag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lines\+\_\+geom.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lines\+\_\+frag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}curve\+\_\+geom.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}triangles\+\_\+geom.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}triangles\+\_\+frag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}text\+\_\+vert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}text\+\_\+frag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}default\+\_\+vert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}default\+\_\+frag.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbov__order__struct}{bov\+\_\+order\+\_\+struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_af08ec37a8c99d747fb60fa15bc28678b}{\+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}}
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a50af8988df09ed576c5df4fe6e89eb67}{P\+O\+S\+\_\+\+L\+O\+C\+A\+T\+I\+ON}}~0
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_aef2ce9f587b283776ffd27149d7110e5}{T\+E\+X\+\_\+\+L\+O\+C\+A\+T\+I\+ON}}~1
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a62c9184d5b7639efd5db3a1402369eba}{S\+P\+E\+E\+D\+\_\+\+L\+O\+C\+A\+T\+I\+ON}}~1
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a12fdc42053ff045f379c23c3fc72cba2}{D\+A\+T\+A\+\_\+\+L\+O\+C\+A\+T\+I\+ON}}~2
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a6d0d1b930fdaa8144595f22d549c7f7b}{F\+O\+N\+T\+\_\+\+A\+T\+L\+A\+S\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+U\+N\+IT}}~0
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a43354103c5fe510257e0cc96e96f1043}{F\+R\+A\+M\+E\+B\+U\+F\+F\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+U\+N\+IT}}~1
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_ae0e13e15f7613d1a5cb78e9a333768e0}{T\+E\+X\+T\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX}}~0
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_aca43b8a52099727d1e143dfca5b93e8a}{P\+O\+I\+N\+T\+S\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX}}~1
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a2db38857003b7a6ab195d51c1a166717}{L\+I\+N\+E\+S\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX}}~2
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a1b6314ead6ec743509dc1ba385ccbbc6}{C\+U\+R\+V\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX}}~3
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a8cfe50ad5020e30fb4314aa1458390a0}{T\+R\+I\+A\+N\+G\+L\+E\+S\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX}}~4
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_aca7df03cb40123c115c0374089621ef5}{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX}}~5
+\item 
+\#define \mbox{\hyperlink{_b_o_v_8c_a5140de9c324233d5bb5f5586160d0274}{C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+OC}}(ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a74fed924e3de606e5cc61ce550270c45}{bov\+\_\+error\+\_\+log}} (int error\+Code, const char $\ast$fmt,...)
+\item 
+bov\+\_\+window\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_afc9300b1509ef9cdc11814c0f91dc4b6}{bov\+\_\+window\+\_\+new}} (int width, int height, const char $\ast$win\+\_\+name)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a7bbb337039b4c11987b304cf3a613c2f}{bov\+\_\+window\+\_\+update}} (bov\+\_\+window\+\_\+t $\ast$window)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a275d9c5d6af6eca2ac8d806d6cb40fb4}{bov\+\_\+window\+\_\+update\+\_\+and\+\_\+wait\+\_\+events}} (bov\+\_\+window\+\_\+t $\ast$window)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_ab3c90f9ba64ce27766fb14e980adcc00}{bov\+\_\+window\+\_\+delete}} (bov\+\_\+window\+\_\+t $\ast$window)
+\item 
+bov\+\_\+order\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_ac64880041377a25d071ae150d2895a53}{bov\+\_\+order\+\_\+new}} (const G\+Luint $\ast$elements, G\+Lsizei n, G\+Lenum usage)
+\item 
+bov\+\_\+order\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_a1d62269b5a662cf042cc457e68a3a7f3}{bov\+\_\+order\+\_\+update}} (bov\+\_\+order\+\_\+t $\ast$order, const G\+Luint $\ast$elements, G\+Lsizei n)
+\item 
+bov\+\_\+order\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_aff2edcd58c20d07f5cffe316fa2c7435}{bov\+\_\+order\+\_\+partial\+\_\+update}} (bov\+\_\+order\+\_\+t $\ast$order, const G\+Luint $\ast$elements, G\+Lint start, G\+Lsizei count, G\+Lsizei newN)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a8e8f00a120eafc7f078e67bd22382215}{bov\+\_\+order\+\_\+delete}} (bov\+\_\+order\+\_\+t $\ast$order)
+\item 
+bov\+\_\+text\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_a0cba23cb2fecdcd84f37a1dcf086671d}{bov\+\_\+text\+\_\+new}} (const G\+Lubyte $\ast$string, G\+Lenum usage)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a9b8a1bc71cb4f1730ea4f427129582b6}{bov\+\_\+text\+\_\+delete}} (bov\+\_\+text\+\_\+t $\ast$text)
+\item 
+bov\+\_\+text\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_a0fa2f0c89c295353e1218f8e5e3a7faf}{bov\+\_\+text\+\_\+update}} (bov\+\_\+text\+\_\+t $\ast$text, const G\+Lubyte $\ast$string)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a837a2e91368a7f2ef1f58595d8991a14}{bov\+\_\+text\+\_\+draw}} (bov\+\_\+window\+\_\+t $\ast$window, const bov\+\_\+text\+\_\+t $\ast$text)
+\item 
+bov\+\_\+points\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_a3efc2a31de55e6ca89e0f9061cb3e4a8}{bov\+\_\+points\+\_\+new}} (const G\+Lfloat coords\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}, G\+Lsizei n, G\+Lenum usage)
+\item 
+bov\+\_\+points\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_a92345c9e5fa0214757c8d285b1d7845e}{bov\+\_\+points\+\_\+update}} (bov\+\_\+points\+\_\+t $\ast$points, const G\+Lfloat coords\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}, G\+Lsizei n)
+\item 
+bov\+\_\+points\+\_\+t $\ast$ \mbox{\hyperlink{_b_o_v_8c_a601b12b9608acffc7750c0d51c0c6aa1}{bov\+\_\+points\+\_\+partial\+\_\+update}} (bov\+\_\+points\+\_\+t $\ast$points, const G\+Lfloat coords\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}, G\+Lint start, G\+Lsizei count, G\+Lsizei newN)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a98ed35b6c32812fecc3153adc1254e75}{bov\+\_\+points\+\_\+delete}} (bov\+\_\+points\+\_\+t $\ast$points)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a932c09812868295b2b3226ab3979b679}{bov\+\_\+points\+\_\+draw\+\_\+aux}} (bov\+\_\+window\+\_\+t $\ast$window, const bov\+\_\+points\+\_\+t $\ast$points, bov\+\_\+points\+\_\+drawing\+\_\+mode\+\_\+t mode, G\+Lint start, G\+Lsizei count)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a84240fd85dcda9160c9da3eba30c3d9d}{bov\+\_\+points\+\_\+draw\+\_\+with\+\_\+order\+\_\+aux}} (bov\+\_\+window\+\_\+t $\ast$window, const bov\+\_\+points\+\_\+t $\ast$points, bov\+\_\+points\+\_\+drawing\+\_\+mode\+\_\+t mode, const bov\+\_\+order\+\_\+t $\ast$order, G\+Lint start, G\+Lsizei count)
+\item 
+void \mbox{\hyperlink{_b_o_v_8c_a0b692c9dcaa0c0e56a86029c6215fc71}{bov\+\_\+window\+\_\+screenshot}} (const bov\+\_\+window\+\_\+t $\ast$window, const char $\ast$filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_b_o_v_8c_af08ec37a8c99d747fb60fa15bc28678b}\label{_b_o_v_8c_af08ec37a8c99d747fb60fa15bc28678b}} 
+\index{BOV.c@{BOV.c}!\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}}
+\index{\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{\_CRT\_SECURE\_NO\_WARNINGS}{\_CRT\_SECURE\_NO\_WARNINGS}}
+{\footnotesize\ttfamily \#define \+\_\+\+C\+R\+T\+\_\+\+S\+E\+C\+U\+R\+E\+\_\+\+N\+O\+\_\+\+W\+A\+R\+N\+I\+N\+GS}
+
+\mbox{\Hypertarget{_b_o_v_8c_a5140de9c324233d5bb5f5586160d0274}\label{_b_o_v_8c_a5140de9c324233d5bb5f5586160d0274}} 
+\index{BOV.c@{BOV.c}!CHECK\_MALLOC@{CHECK\_MALLOC}}
+\index{CHECK\_MALLOC@{CHECK\_MALLOC}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{CHECK\_MALLOC}{CHECK\_MALLOC}}
+{\footnotesize\ttfamily \#define C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+OC(\begin{DoxyParamCaption}\item[{}]{ptr }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}((ptr)==NULL) \{ \(\backslash\)}
+\DoxyCodeLine{        BOV\_ERROR\_LOG(BOV\_OUT\_OF\_MEM\_ERROR, \(\backslash\)}
+\DoxyCodeLine{                      \textcolor{stringliteral}{"{}Memory allocation failed"{}}); \(\backslash\)}
+\DoxyCodeLine{        exit(EXIT\_FAILURE); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_b_o_v_8c_a1b6314ead6ec743509dc1ba385ccbbc6}\label{_b_o_v_8c_a1b6314ead6ec743509dc1ba385ccbbc6}} 
+\index{BOV.c@{BOV.c}!CURVE\_PROGRAM\_INDEX@{CURVE\_PROGRAM\_INDEX}}
+\index{CURVE\_PROGRAM\_INDEX@{CURVE\_PROGRAM\_INDEX}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{CURVE\_PROGRAM\_INDEX}{CURVE\_PROGRAM\_INDEX}}
+{\footnotesize\ttfamily \#define C\+U\+R\+V\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX~3}
+
+\mbox{\Hypertarget{_b_o_v_8c_a12fdc42053ff045f379c23c3fc72cba2}\label{_b_o_v_8c_a12fdc42053ff045f379c23c3fc72cba2}} 
+\index{BOV.c@{BOV.c}!DATA\_LOCATION@{DATA\_LOCATION}}
+\index{DATA\_LOCATION@{DATA\_LOCATION}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{DATA\_LOCATION}{DATA\_LOCATION}}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+L\+O\+C\+A\+T\+I\+ON~2}
+
+\mbox{\Hypertarget{_b_o_v_8c_aca7df03cb40123c115c0374089621ef5}\label{_b_o_v_8c_aca7df03cb40123c115c0374089621ef5}} 
+\index{BOV.c@{BOV.c}!DEFAULT\_PROGRAM\_INDEX@{DEFAULT\_PROGRAM\_INDEX}}
+\index{DEFAULT\_PROGRAM\_INDEX@{DEFAULT\_PROGRAM\_INDEX}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_PROGRAM\_INDEX}{DEFAULT\_PROGRAM\_INDEX}}
+{\footnotesize\ttfamily \#define D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX~5}
+
+\mbox{\Hypertarget{_b_o_v_8c_a6d0d1b930fdaa8144595f22d549c7f7b}\label{_b_o_v_8c_a6d0d1b930fdaa8144595f22d549c7f7b}} 
+\index{BOV.c@{BOV.c}!FONT\_ATLAS\_TEXTURE\_UNIT@{FONT\_ATLAS\_TEXTURE\_UNIT}}
+\index{FONT\_ATLAS\_TEXTURE\_UNIT@{FONT\_ATLAS\_TEXTURE\_UNIT}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{FONT\_ATLAS\_TEXTURE\_UNIT}{FONT\_ATLAS\_TEXTURE\_UNIT}}
+{\footnotesize\ttfamily \#define F\+O\+N\+T\+\_\+\+A\+T\+L\+A\+S\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+U\+N\+IT~0}
+
+\mbox{\Hypertarget{_b_o_v_8c_a43354103c5fe510257e0cc96e96f1043}\label{_b_o_v_8c_a43354103c5fe510257e0cc96e96f1043}} 
+\index{BOV.c@{BOV.c}!FRAMEBUFFER\_TEXTURE\_UNIT@{FRAMEBUFFER\_TEXTURE\_UNIT}}
+\index{FRAMEBUFFER\_TEXTURE\_UNIT@{FRAMEBUFFER\_TEXTURE\_UNIT}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{FRAMEBUFFER\_TEXTURE\_UNIT}{FRAMEBUFFER\_TEXTURE\_UNIT}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+B\+U\+F\+F\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+U\+N\+IT~1}
+
+\mbox{\Hypertarget{_b_o_v_8c_a2db38857003b7a6ab195d51c1a166717}\label{_b_o_v_8c_a2db38857003b7a6ab195d51c1a166717}} 
+\index{BOV.c@{BOV.c}!LINES\_PROGRAM\_INDEX@{LINES\_PROGRAM\_INDEX}}
+\index{LINES\_PROGRAM\_INDEX@{LINES\_PROGRAM\_INDEX}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{LINES\_PROGRAM\_INDEX}{LINES\_PROGRAM\_INDEX}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+S\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX~2}
+
+\mbox{\Hypertarget{_b_o_v_8c_aca43b8a52099727d1e143dfca5b93e8a}\label{_b_o_v_8c_aca43b8a52099727d1e143dfca5b93e8a}} 
+\index{BOV.c@{BOV.c}!POINTS\_PROGRAM\_INDEX@{POINTS\_PROGRAM\_INDEX}}
+\index{POINTS\_PROGRAM\_INDEX@{POINTS\_PROGRAM\_INDEX}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{POINTS\_PROGRAM\_INDEX}{POINTS\_PROGRAM\_INDEX}}
+{\footnotesize\ttfamily \#define P\+O\+I\+N\+T\+S\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX~1}
+
+\mbox{\Hypertarget{_b_o_v_8c_a50af8988df09ed576c5df4fe6e89eb67}\label{_b_o_v_8c_a50af8988df09ed576c5df4fe6e89eb67}} 
+\index{BOV.c@{BOV.c}!POS\_LOCATION@{POS\_LOCATION}}
+\index{POS\_LOCATION@{POS\_LOCATION}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{POS\_LOCATION}{POS\_LOCATION}}
+{\footnotesize\ttfamily \#define P\+O\+S\+\_\+\+L\+O\+C\+A\+T\+I\+ON~0}
+
+\mbox{\Hypertarget{_b_o_v_8c_a62c9184d5b7639efd5db3a1402369eba}\label{_b_o_v_8c_a62c9184d5b7639efd5db3a1402369eba}} 
+\index{BOV.c@{BOV.c}!SPEED\_LOCATION@{SPEED\_LOCATION}}
+\index{SPEED\_LOCATION@{SPEED\_LOCATION}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{SPEED\_LOCATION}{SPEED\_LOCATION}}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+L\+O\+C\+A\+T\+I\+ON~1}
+
+\mbox{\Hypertarget{_b_o_v_8c_aef2ce9f587b283776ffd27149d7110e5}\label{_b_o_v_8c_aef2ce9f587b283776ffd27149d7110e5}} 
+\index{BOV.c@{BOV.c}!TEX\_LOCATION@{TEX\_LOCATION}}
+\index{TEX\_LOCATION@{TEX\_LOCATION}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{TEX\_LOCATION}{TEX\_LOCATION}}
+{\footnotesize\ttfamily \#define T\+E\+X\+\_\+\+L\+O\+C\+A\+T\+I\+ON~1}
+
+\mbox{\Hypertarget{_b_o_v_8c_ae0e13e15f7613d1a5cb78e9a333768e0}\label{_b_o_v_8c_ae0e13e15f7613d1a5cb78e9a333768e0}} 
+\index{BOV.c@{BOV.c}!TEXT\_PROGRAM\_INDEX@{TEXT\_PROGRAM\_INDEX}}
+\index{TEXT\_PROGRAM\_INDEX@{TEXT\_PROGRAM\_INDEX}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{TEXT\_PROGRAM\_INDEX}{TEXT\_PROGRAM\_INDEX}}
+{\footnotesize\ttfamily \#define T\+E\+X\+T\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX~0}
+
+\mbox{\Hypertarget{_b_o_v_8c_a8cfe50ad5020e30fb4314aa1458390a0}\label{_b_o_v_8c_a8cfe50ad5020e30fb4314aa1458390a0}} 
+\index{BOV.c@{BOV.c}!TRIANGLES\_PROGRAM\_INDEX@{TRIANGLES\_PROGRAM\_INDEX}}
+\index{TRIANGLES\_PROGRAM\_INDEX@{TRIANGLES\_PROGRAM\_INDEX}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{TRIANGLES\_PROGRAM\_INDEX}{TRIANGLES\_PROGRAM\_INDEX}}
+{\footnotesize\ttfamily \#define T\+R\+I\+A\+N\+G\+L\+E\+S\+\_\+\+P\+R\+O\+G\+R\+A\+M\+\_\+\+I\+N\+D\+EX~4}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_b_o_v_8c_a74fed924e3de606e5cc61ce550270c45}\label{_b_o_v_8c_a74fed924e3de606e5cc61ce550270c45}} 
+\index{BOV.c@{BOV.c}!bov\_error\_log@{bov\_error\_log}}
+\index{bov\_error\_log@{bov\_error\_log}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_error\_log()}{bov\_error\_log()}}
+{\footnotesize\ttfamily void bov\+\_\+error\+\_\+log (\begin{DoxyParamCaption}\item[{int}]{error\+Code,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a8e8f00a120eafc7f078e67bd22382215}\label{_b_o_v_8c_a8e8f00a120eafc7f078e67bd22382215}} 
+\index{BOV.c@{BOV.c}!bov\_order\_delete@{bov\_order\_delete}}
+\index{bov\_order\_delete@{bov\_order\_delete}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_order\_delete()}{bov\_order\_delete()}}
+{\footnotesize\ttfamily void bov\+\_\+order\+\_\+delete (\begin{DoxyParamCaption}\item[{bov\+\_\+order\+\_\+t $\ast$}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_ac64880041377a25d071ae150d2895a53}\label{_b_o_v_8c_ac64880041377a25d071ae150d2895a53}} 
+\index{BOV.c@{BOV.c}!bov\_order\_new@{bov\_order\_new}}
+\index{bov\_order\_new@{bov\_order\_new}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_order\_new()}{bov\_order\_new()}}
+{\footnotesize\ttfamily bov\+\_\+order\+\_\+t$\ast$ bov\+\_\+order\+\_\+new (\begin{DoxyParamCaption}\item[{const G\+Luint $\ast$}]{elements,  }\item[{G\+Lsizei}]{n,  }\item[{G\+Lenum}]{usage }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_aff2edcd58c20d07f5cffe316fa2c7435}\label{_b_o_v_8c_aff2edcd58c20d07f5cffe316fa2c7435}} 
+\index{BOV.c@{BOV.c}!bov\_order\_partial\_update@{bov\_order\_partial\_update}}
+\index{bov\_order\_partial\_update@{bov\_order\_partial\_update}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_order\_partial\_update()}{bov\_order\_partial\_update()}}
+{\footnotesize\ttfamily bov\+\_\+order\+\_\+t$\ast$ bov\+\_\+order\+\_\+partial\+\_\+update (\begin{DoxyParamCaption}\item[{bov\+\_\+order\+\_\+t $\ast$}]{order,  }\item[{const G\+Luint $\ast$}]{elements,  }\item[{G\+Lint}]{start,  }\item[{G\+Lsizei}]{count,  }\item[{G\+Lsizei}]{newN }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a1d62269b5a662cf042cc457e68a3a7f3}\label{_b_o_v_8c_a1d62269b5a662cf042cc457e68a3a7f3}} 
+\index{BOV.c@{BOV.c}!bov\_order\_update@{bov\_order\_update}}
+\index{bov\_order\_update@{bov\_order\_update}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_order\_update()}{bov\_order\_update()}}
+{\footnotesize\ttfamily bov\+\_\+order\+\_\+t$\ast$ bov\+\_\+order\+\_\+update (\begin{DoxyParamCaption}\item[{bov\+\_\+order\+\_\+t $\ast$}]{order,  }\item[{const G\+Luint $\ast$}]{elements,  }\item[{G\+Lsizei}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a98ed35b6c32812fecc3153adc1254e75}\label{_b_o_v_8c_a98ed35b6c32812fecc3153adc1254e75}} 
+\index{BOV.c@{BOV.c}!bov\_points\_delete@{bov\_points\_delete}}
+\index{bov\_points\_delete@{bov\_points\_delete}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_points\_delete()}{bov\_points\_delete()}}
+{\footnotesize\ttfamily void bov\+\_\+points\+\_\+delete (\begin{DoxyParamCaption}\item[{bov\+\_\+points\+\_\+t $\ast$}]{points }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a932c09812868295b2b3226ab3979b679}\label{_b_o_v_8c_a932c09812868295b2b3226ab3979b679}} 
+\index{BOV.c@{BOV.c}!bov\_points\_draw\_aux@{bov\_points\_draw\_aux}}
+\index{bov\_points\_draw\_aux@{bov\_points\_draw\_aux}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_points\_draw\_aux()}{bov\_points\_draw\_aux()}}
+{\footnotesize\ttfamily void bov\+\_\+points\+\_\+draw\+\_\+aux (\begin{DoxyParamCaption}\item[{bov\+\_\+window\+\_\+t $\ast$}]{window,  }\item[{const bov\+\_\+points\+\_\+t $\ast$}]{points,  }\item[{bov\+\_\+points\+\_\+drawing\+\_\+mode\+\_\+t}]{mode,  }\item[{G\+Lint}]{start,  }\item[{G\+Lsizei}]{count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a84240fd85dcda9160c9da3eba30c3d9d}\label{_b_o_v_8c_a84240fd85dcda9160c9da3eba30c3d9d}} 
+\index{BOV.c@{BOV.c}!bov\_points\_draw\_with\_order\_aux@{bov\_points\_draw\_with\_order\_aux}}
+\index{bov\_points\_draw\_with\_order\_aux@{bov\_points\_draw\_with\_order\_aux}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_points\_draw\_with\_order\_aux()}{bov\_points\_draw\_with\_order\_aux()}}
+{\footnotesize\ttfamily void bov\+\_\+points\+\_\+draw\+\_\+with\+\_\+order\+\_\+aux (\begin{DoxyParamCaption}\item[{bov\+\_\+window\+\_\+t $\ast$}]{window,  }\item[{const bov\+\_\+points\+\_\+t $\ast$}]{points,  }\item[{bov\+\_\+points\+\_\+drawing\+\_\+mode\+\_\+t}]{mode,  }\item[{const bov\+\_\+order\+\_\+t $\ast$}]{order,  }\item[{G\+Lint}]{start,  }\item[{G\+Lsizei}]{count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a3efc2a31de55e6ca89e0f9061cb3e4a8}\label{_b_o_v_8c_a3efc2a31de55e6ca89e0f9061cb3e4a8}} 
+\index{BOV.c@{BOV.c}!bov\_points\_new@{bov\_points\_new}}
+\index{bov\_points\_new@{bov\_points\_new}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_points\_new()}{bov\_points\_new()}}
+{\footnotesize\ttfamily bov\+\_\+points\+\_\+t$\ast$ bov\+\_\+points\+\_\+new (\begin{DoxyParamCaption}\item[{const G\+Lfloat}]{coords\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]},  }\item[{G\+Lsizei}]{n,  }\item[{G\+Lenum}]{usage }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a601b12b9608acffc7750c0d51c0c6aa1}\label{_b_o_v_8c_a601b12b9608acffc7750c0d51c0c6aa1}} 
+\index{BOV.c@{BOV.c}!bov\_points\_partial\_update@{bov\_points\_partial\_update}}
+\index{bov\_points\_partial\_update@{bov\_points\_partial\_update}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_points\_partial\_update()}{bov\_points\_partial\_update()}}
+{\footnotesize\ttfamily bov\+\_\+points\+\_\+t$\ast$ bov\+\_\+points\+\_\+partial\+\_\+update (\begin{DoxyParamCaption}\item[{bov\+\_\+points\+\_\+t $\ast$}]{points,  }\item[{const G\+Lfloat}]{coords\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]},  }\item[{G\+Lint}]{start,  }\item[{G\+Lsizei}]{count,  }\item[{G\+Lsizei}]{newN }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a92345c9e5fa0214757c8d285b1d7845e}\label{_b_o_v_8c_a92345c9e5fa0214757c8d285b1d7845e}} 
+\index{BOV.c@{BOV.c}!bov\_points\_update@{bov\_points\_update}}
+\index{bov\_points\_update@{bov\_points\_update}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_points\_update()}{bov\_points\_update()}}
+{\footnotesize\ttfamily bov\+\_\+points\+\_\+t$\ast$ bov\+\_\+points\+\_\+update (\begin{DoxyParamCaption}\item[{bov\+\_\+points\+\_\+t $\ast$}]{points,  }\item[{const G\+Lfloat}]{coords\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]},  }\item[{G\+Lsizei}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a9b8a1bc71cb4f1730ea4f427129582b6}\label{_b_o_v_8c_a9b8a1bc71cb4f1730ea4f427129582b6}} 
+\index{BOV.c@{BOV.c}!bov\_text\_delete@{bov\_text\_delete}}
+\index{bov\_text\_delete@{bov\_text\_delete}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_text\_delete()}{bov\_text\_delete()}}
+{\footnotesize\ttfamily void bov\+\_\+text\+\_\+delete (\begin{DoxyParamCaption}\item[{bov\+\_\+text\+\_\+t $\ast$}]{text }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a837a2e91368a7f2ef1f58595d8991a14}\label{_b_o_v_8c_a837a2e91368a7f2ef1f58595d8991a14}} 
+\index{BOV.c@{BOV.c}!bov\_text\_draw@{bov\_text\_draw}}
+\index{bov\_text\_draw@{bov\_text\_draw}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_text\_draw()}{bov\_text\_draw()}}
+{\footnotesize\ttfamily void bov\+\_\+text\+\_\+draw (\begin{DoxyParamCaption}\item[{bov\+\_\+window\+\_\+t $\ast$}]{window,  }\item[{const bov\+\_\+text\+\_\+t $\ast$}]{text }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a0cba23cb2fecdcd84f37a1dcf086671d}\label{_b_o_v_8c_a0cba23cb2fecdcd84f37a1dcf086671d}} 
+\index{BOV.c@{BOV.c}!bov\_text\_new@{bov\_text\_new}}
+\index{bov\_text\_new@{bov\_text\_new}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_text\_new()}{bov\_text\_new()}}
+{\footnotesize\ttfamily bov\+\_\+text\+\_\+t$\ast$ bov\+\_\+text\+\_\+new (\begin{DoxyParamCaption}\item[{const G\+Lubyte $\ast$}]{string,  }\item[{G\+Lenum}]{usage }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a0fa2f0c89c295353e1218f8e5e3a7faf}\label{_b_o_v_8c_a0fa2f0c89c295353e1218f8e5e3a7faf}} 
+\index{BOV.c@{BOV.c}!bov\_text\_update@{bov\_text\_update}}
+\index{bov\_text\_update@{bov\_text\_update}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_text\_update()}{bov\_text\_update()}}
+{\footnotesize\ttfamily bov\+\_\+text\+\_\+t$\ast$ bov\+\_\+text\+\_\+update (\begin{DoxyParamCaption}\item[{bov\+\_\+text\+\_\+t $\ast$}]{text,  }\item[{const G\+Lubyte $\ast$}]{string }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_ab3c90f9ba64ce27766fb14e980adcc00}\label{_b_o_v_8c_ab3c90f9ba64ce27766fb14e980adcc00}} 
+\index{BOV.c@{BOV.c}!bov\_window\_delete@{bov\_window\_delete}}
+\index{bov\_window\_delete@{bov\_window\_delete}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_window\_delete()}{bov\_window\_delete()}}
+{\footnotesize\ttfamily void bov\+\_\+window\+\_\+delete (\begin{DoxyParamCaption}\item[{bov\+\_\+window\+\_\+t $\ast$}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_afc9300b1509ef9cdc11814c0f91dc4b6}\label{_b_o_v_8c_afc9300b1509ef9cdc11814c0f91dc4b6}} 
+\index{BOV.c@{BOV.c}!bov\_window\_new@{bov\_window\_new}}
+\index{bov\_window\_new@{bov\_window\_new}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_window\_new()}{bov\_window\_new()}}
+{\footnotesize\ttfamily bov\+\_\+window\+\_\+t$\ast$ bov\+\_\+window\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{const char $\ast$}]{win\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a0b692c9dcaa0c0e56a86029c6215fc71}\label{_b_o_v_8c_a0b692c9dcaa0c0e56a86029c6215fc71}} 
+\index{BOV.c@{BOV.c}!bov\_window\_screenshot@{bov\_window\_screenshot}}
+\index{bov\_window\_screenshot@{bov\_window\_screenshot}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_window\_screenshot()}{bov\_window\_screenshot()}}
+{\footnotesize\ttfamily void bov\+\_\+window\+\_\+screenshot (\begin{DoxyParamCaption}\item[{const bov\+\_\+window\+\_\+t $\ast$}]{window,  }\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a7bbb337039b4c11987b304cf3a613c2f}\label{_b_o_v_8c_a7bbb337039b4c11987b304cf3a613c2f}} 
+\index{BOV.c@{BOV.c}!bov\_window\_update@{bov\_window\_update}}
+\index{bov\_window\_update@{bov\_window\_update}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_window\_update()}{bov\_window\_update()}}
+{\footnotesize\ttfamily void bov\+\_\+window\+\_\+update (\begin{DoxyParamCaption}\item[{bov\+\_\+window\+\_\+t $\ast$}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_b_o_v_8c_a275d9c5d6af6eca2ac8d806d6cb40fb4}\label{_b_o_v_8c_a275d9c5d6af6eca2ac8d806d6cb40fb4}} 
+\index{BOV.c@{BOV.c}!bov\_window\_update\_and\_wait\_events@{bov\_window\_update\_and\_wait\_events}}
+\index{bov\_window\_update\_and\_wait\_events@{bov\_window\_update\_and\_wait\_events}!BOV.c@{BOV.c}}
+\doxysubsubsection{\texorpdfstring{bov\_window\_update\_and\_wait\_events()}{bov\_window\_update\_and\_wait\_events()}}
+{\footnotesize\ttfamily void bov\+\_\+window\+\_\+update\+\_\+and\+\_\+wait\+\_\+events (\begin{DoxyParamCaption}\item[{bov\+\_\+window\+\_\+t $\ast$}]{window }\end{DoxyParamCaption})}
+
