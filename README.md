@@ -4,4 +4,4 @@ at UCLouvain, a.y. 2020/2021, first semester.
 The project is a C implementation of the Fortune's algorithm for Voronoi
 Diagram.
 
-![Output sample](https://github.com/lugot/fortune_algorithm/screenshots/animated.gif)
+![Output sample](https://github.com/lugot/fortune_algorithm/blob/main/screenshots/animated.gif)
